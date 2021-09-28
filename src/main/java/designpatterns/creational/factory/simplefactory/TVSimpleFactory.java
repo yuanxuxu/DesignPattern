@@ -15,7 +15,7 @@ public class TVSimpleFactory {
     }
 
     enum TVMODE {
-            COLOR, LED, LCD, THREEDIM
+        COLOR, LED, LCD, THREEDIM
     };
 
     public static ITV getTV(TVMODE mode) {
