@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * Good example
+ * 
  * In computer programming, the strategy pattern (also known as the policy
  * pattern) is a behavioral software design pattern that enables selecting an
  * algorithm at runtime. Instead of implementing a single algorithm directly,
