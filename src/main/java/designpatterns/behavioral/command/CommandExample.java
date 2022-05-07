@@ -14,8 +14,12 @@ import java.util.HashMap;
  * or trigger an event at a later time. This information
  * includes the method name, the object that owns the method
  * and values for the method parameters.
+ * 
+ * The Command Pattern encapsulates a request as an object, thereby letting you
+ * parameterize other objects with different requests, queue or log requests,
+ * and support undoable operations.
  *
- * */
+ */
 public class CommandExample {
 
     public static void main(String[] args) {
@@ -54,7 +58,7 @@ class Switch {
         Command command = commandMap.get(commandName);
         if (command == null) {
             throw new IllegalArgumentException("no command registered for " +
-            commandName);
+                    commandName);
         }
         command.execute();
     }
@@ -97,24 +101,3 @@ class SwitchOffCommand implements Command {
         light.turnOff();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
