@@ -1,5 +1,6 @@
 package JavaBasic.java8;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -37,6 +38,7 @@ public class Java8 {
                 .parallel()
                 .collect(Collectors.groupingBy(e -> e.name));
 
+        Collections.sort(employees, (a, b) -> b.salary - a.salary);
     }
 
     static class Employee {
