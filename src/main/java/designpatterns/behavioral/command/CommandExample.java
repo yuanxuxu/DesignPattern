@@ -19,6 +19,18 @@ import java.util.HashMap;
  * parameterize other objects with different requests, queue or log requests,
  * and support undoable operations.
  *
+ *https://stackoverflow.com/questions/32597736/why-should-i-use-the-command-design-pattern-while-i-can-easily-call-required-met
+ *
+ *
+ votes
+
+ The main motivation for using the Command pattern is that the executor of the command does not need to know anything
+ at all about what the command is, what context information it needs on or what it does.
+ All of that is encapsulated in the command.
+
+ o, in summary, the pattern encapsulates everything required to take an action and allows the execution
+ of the action to occur completely independently of any of that context.
+ *
  */
 public class CommandExample {
 
@@ -28,15 +40,16 @@ public class CommandExample {
 
         // ConcreteCommand
         Command switchOn = new SwitchOnCommand(lamp);
-        Command switchOff = new SwitchOffCommand(lamp);
 
         // Invoker
         Switch mySwitch = new Switch();
         mySwitch.register("on", switchOn);
-        mySwitch.register("off", switchOff);
+        // mySwitch.register("off", switchOff);
 
         mySwitch.execute("on");
-        mySwitch.execute("off");
+        // mySwitch.execute("off");
+        SwitchOffCommand switchOffCommand = new SwitchOffCommand(lamp::turnOff); // method reference
+        switchOffCommand.execute();
     }
 
 }
@@ -89,15 +102,16 @@ class SwitchOnCommand implements Command {
     }
 }
 
-class SwitchOffCommand implements Command {
-    private final Light light;
+// Functional style
+class SwitchOffCommand {
+    private final Command command;
 
-    public SwitchOffCommand(Light light) {
-        this.light = light;
+    public SwitchOffCommand(Command command) {
+        this.command = command;
     }
 
-    @Override
     public void execute() {
-        light.turnOff();
+        command.execute();
     }
+
 }
