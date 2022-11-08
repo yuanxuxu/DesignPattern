@@ -1,16 +1,23 @@
 package designpatterns.structural.template;
 
+/**
+ * The Template Method Pattern defines the skeleton of an algorithm in a method,
+ * deferring some steps to subclasses. Template Method lets subclasses redefine
+ * certain steps of an algorithm without changing the algorithm’s structure.
+ */
 public class TemplateTest {
-
     public static void main(String[] args) {
         CaffeineBeverage tea = new Tea();
-        tea.boildWater();
-        ((Tea) tea).brew();
+        // tea.boildWater();
+        tea.brew();
 
-        CaffeineBeverage coffee = new Coffee();
-        coffee.boildWater();
-        ((Coffee) coffee).brew();
+        // tea.prepareRecipe();
+
+        // CaffeineBeverage coffee = new Coffee();
+        // coffee.boildWater();
+        // ((Coffee) coffee).brew();
     }
+
 }
 
 abstract class CaffeineBeverage {

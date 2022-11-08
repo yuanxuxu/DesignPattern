@@ -7,6 +7,11 @@ package designpatterns.creational.builder;
  * if many of the parameters are optional or of identical type.
  * */
 
+/**
+ * NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8)
+ * .calories(100).sodium(35).carbohydrate(27).build();
+ */
+
 public class NutritionFacts {
 
     private final int servingSize;

@@ -12,6 +12,9 @@ package designpatterns.structural.adapter;
  * interface.[1] It is often used to make existing classes work with others
  * without modifying their source code.
  * 
+ * Real example:
+ * https://github.com/apache/cassandra/blob/trunk/src/java/org/apache/cassandra/cache/CaffeineCache.java
+ * 
  */
 public class DuckTestDrive {
     public static void main(String[] args) {

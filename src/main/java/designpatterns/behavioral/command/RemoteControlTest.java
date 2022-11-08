@@ -7,8 +7,8 @@ public class RemoteControlTest {
         Light light = new Light();
         light.off();
         Command command = new LightOnCommand(light);
-        // simpleRemoteControl.setCommand(command);
-        // simpleRemoteControl.buttonWasPressed();
+        simpleRemoteControl.setCommand(command);
+        simpleRemoteControl.buttonWasPressed();
         // System.out.println("Hello Design Patterns");
     }
 }

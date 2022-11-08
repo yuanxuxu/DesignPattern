@@ -6,13 +6,12 @@ package designpatterns.structural.decorator;
  * dynamically, without affecting the behavior of other
  * objects from the same class
  *
- * */
+ */
 public class Decorator {
 
     public static void main(String[] args) {
         Window window = new Horizontal(new VerticalDecorator(
-                new SimpleWindow()
-        ));
+                new SimpleWindow()));
 
         System.out.println(window.getDescription());
     }
@@ -21,6 +20,7 @@ public class Decorator {
 
 interface Window {
     void draw();
+
     String getDescription();
 }
 
@@ -40,7 +40,7 @@ abstract class WindowDecorator implements Window {
     private final Window window;
 
     public WindowDecorator(Window window) {
-        this.window =  window;
+        this.window = window;
     }
 
     @Override
@@ -96,31 +96,3 @@ class Horizontal extends WindowDecorator {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
