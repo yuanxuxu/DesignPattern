@@ -7,21 +7,22 @@ class Test {
 
 	}
 
-	// Oct 28th, 2022
-	public int minDeletions(String s) {
-		Set<Integer> v = new HashSet<>();
-		int[] count = new int[26];
-		for (char c : s.toCharArray()) {
-			count[c - 'a']++;
-		}
-		int res = 0;
-		for (int i = 0; i < 26; i++) {
-			while (count[i] > 0 && !v.add(count[i])) {
-				count[i]--; // pick a non-used freq for cur char
-				res++;
+	// Nov 9th, 2022
+	public int countPrimes(int n) {
+		boolean[] primes = new boolean[n];
+		Arrays.fill(primes, true);
+		int count = 0;
+
+		// 0 or 1 is not prime numbers
+		for (int i = 2; i < n; i++) {
+			if (primes[i]) {
+				count++;
+				for (int j = 2; i * j < n; j++) {
+					primes[i * j] = false;
+				}
 			}
 		}
 
-		return res;
+		return count;
 	}
 }
